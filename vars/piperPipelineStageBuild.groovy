@@ -41,6 +41,8 @@ import static com.sap.piper.Prerequisites.checkScript
 @GenerateStageDocumentation(defaultStageName = 'Build')
 void call(Map parameters = [:]) {
 
+    echo "[FW]: Entering piperPipelineStageBuild"
+
     def script = checkScript(this, parameters) ?: this
     def utils = parameters.juStabUtils ?: new Utils()
     def stageName = StageNameProvider.instance.getStageName(script, parameters, this)
