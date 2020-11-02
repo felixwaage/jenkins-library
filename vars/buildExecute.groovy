@@ -71,6 +71,8 @@ void call(Map parameters = [:]) {
         // telemetry reporting
         utils.pushToSWA([stepParam1: config.buildTool, 'buildTool': config.buildTool], config)
 
+        echo "[FW] Entering Switch Statement to choose build tool"
+
         switch(config.buildTool){
             case 'maven':
                 mavenBuild script: script

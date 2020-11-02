@@ -7,8 +7,15 @@ import com.sap.piper.DownloadCacheUtils
 @Field String METADATA_FILE = 'metadata/mtaBuild.yaml'
 
 void call(Map parameters = [:]) {
+    echo "[FW] Entering mtaBuild ..."
+    
     final script = checkScript(this, parameters) ?: this
     parameters = DownloadCacheUtils.injectDownloadCacheInParameters(script, parameters, BuildTool.MTA)
 
+    echo "[FW] OUTPUT parameters:"
+    echo "---------------------------------------------------"
+    echo parameters
+    echo "---------------------------------------------------"
+    
     piperExecuteBin(parameters, STEP_NAME, METADATA_FILE, [])
 }
