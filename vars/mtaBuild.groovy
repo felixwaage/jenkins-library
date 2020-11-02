@@ -12,10 +12,6 @@ void call(Map parameters = [:]) {
     final script = checkScript(this, parameters) ?: this
     parameters = DownloadCacheUtils.injectDownloadCacheInParameters(script, parameters, BuildTool.MTA)
 
-    echo "[FW] OUTPUT parameters:"
-    echo "---------------------------------------------------"
-    echo parameters
-    echo "---------------------------------------------------"
-    
+    echo "[FW] Executing piperExecuteBin..."
     piperExecuteBin(parameters, STEP_NAME, METADATA_FILE, [])
 }
