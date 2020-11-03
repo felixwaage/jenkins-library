@@ -40,7 +40,7 @@ import static com.sap.piper.Prerequisites.checkScript
  */
 @GenerateStageDocumentation(defaultStageName = 'Build')
 void call(Map parameters = [:]) {
-
+    echo "[FW] Entering Call Function of piperPipelineStageBuilde: ON_K8S: ${env.ON_K8S}"
     echo "[FW]: Entering piperPipelineStageBuild"
 
     def script = checkScript(this, parameters) ?: this
@@ -62,7 +62,7 @@ void call(Map parameters = [:]) {
         utils.pushToSWA([step: STEP_NAME], config)
 
         durationMeasure(script: script, measurementName: 'build_duration') {
-
+            echo "[FW] before buildExecute: ON_K8S: ${env.ON_K8S}"
             buildExecute script: script
             pipelineStashFilesAfterBuild script: script
 
