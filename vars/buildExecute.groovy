@@ -82,6 +82,7 @@ void call(Map parameters = [:]) {
                 }
                 break
             case 'mta':
+                echo "[FW] before mtaBuild step: ON_K8S: ${env.ON_K8S}"
                 mtaBuild script: script
                 break
             case 'npm':
